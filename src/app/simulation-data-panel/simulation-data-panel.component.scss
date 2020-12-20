@@ -1,0 +1,19 @@
+.simulation__top_panel{
+    font-family:TitilliumWeb-Regular;
+}
+.simulation__name{
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background: rgb(100 149 237 / 68%);
+}
+.simulation__info_grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+}
+.simulation__null{
+    text-align: center;
+}

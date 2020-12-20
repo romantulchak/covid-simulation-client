@@ -1,0 +1,64 @@
+<form  class="simulation__form" novalidate (submit)="f.form.valid && simulate()" #f="ngForm">
+
+    <div>
+        <label for="simulationName">Simulation Name</label>
+        <input required type="text" name="simulationName" [(ngModel)]="simulation.simulationName" id="simulationName" placeholder="Min: 2 Max: 15" #simulationName="ngModel" maxlength="15" minlength="2">
+        <div *ngIf="f.submitted && simulationName.invalid" class="alert-error">
+            <h5 *ngIf="simulationName.errors.required">Simulation name is required</h5>
+            <h5 *ngIf="simulationName.errors.minlength">Min length 2</h5>
+            <h5 *ngIf="simulationName.errors.maxlength">Max length 15</h5>
+        </div>
+    </div>
+
+    <div>
+        <label for="initialPopulation">Initial population</label>
+        <input type="number" required [(ngModel)]="simulation.population" #population="ngModel" name="initialPopulation" id="initialPopulation" placeholder="min 1" min="1">
+        <div *ngIf="f.submitted && population.invalid" class="alert-error">
+            <h5 *ngIf="population.errors.required">Population is required</h5>
+        </div>
+    </div>
+    <div>
+        <label for="initialNumberOfInfected">Initial number of Infected</label>
+        <input required type="number" [(ngModel)]="simulation.initialNumberOfInfected" #initialNumberOfInfected="ngModel" name="initialNumberOfInfected" id="initialNumberOfInfected"placeholder="min 0" min="0">
+        <div *ngIf="f.submitted && initialNumberOfInfected.invalid" class="alert-error">
+            <h5 *ngIf="initialNumberOfInfected.errors.required">Initial number of Infected is required</h5>
+        </div>
+    </div>
+
+    <div>
+        <label for="personInfectPerDay">Person Infect Per Day</label>
+        <input type="number" [(ngModel)]="simulation.personInfectPerDay" #personInfectPerDay="ngModel" required name="personInfectPerDay" id="personInfectPerDay" min="1" placeholder="min 1">
+        <div *ngIf="f.submitted && personInfectPerDay.invalid" class="alert-error">
+            <h5 *ngIf="personInfectPerDay.errors.required">Person Infect Per Day is required</h5>
+        </div>
+    </div>
+    <div>
+        <label for="mortalityRate">Mortality Rate</label>
+        <input type="number" [(ngModel)]="simulation.mortalityRate" required #mortalityRate="ngModel" name="mortalityRate" id="mortalityRate" min="1" placeholder="min 1">
+        <div *ngIf="f.submitted && mortalityRate.invalid" class="alert-error">
+            <h5 *ngIf="mortalityRate.errors.required">Mortality Rate is required</h5>
+        </div>
+    </div>
+    <div>
+        <label for="daysToRecovery">Days To Recovery</label>
+        <input type="number" [(ngModel)]="simulation.daysToRecovery" required #daysToRecovery="ngModel" name="daysToRecovery" id="daysToRecovery" min="1" placeholder="min 1">
+        <div *ngIf="f.submitted && daysToRecovery.invalid" class="alert-error">
+            <h5 *ngIf="daysToRecovery.errors.required">Days To Recovery is required</h5>
+        </div>
+    </div>
+    <div>
+        <label for="daysToDeath">Days To Death</label>
+        <input type="number" [(ngModel)]="simulation.daysToDeath" required #daysToDeath="ngModel" name="daysToDeath" id="daysToDeath" min="1" placeholder="min 1">
+        <div *ngIf="f.submitted && daysToDeath.invalid" class="alert-error">
+            <h5 *ngIf="daysToDeath.errors.required">Days To Death is required</h5>
+        </div>
+    </div>
+    <div>
+        <label for="daysOfSimulation">Days Of Simulation</label>
+        <input type="number"  [(ngModel)]="simulation.daysOfSimulation" required #daysOfSimulation="ngModel" name="daysOfSimulation" id="daysOfSimulation" min="1" placeholder="min 1">
+        <div *ngIf="f.submitted && daysOfSimulation.invalid" class="alert-error">
+            <h5 *ngIf="daysOfSimulation.errors.required">Days Of Simulation</h5>
+        </div>
+    </div>
+    <button type="submit">Simulate</button>
+</form>

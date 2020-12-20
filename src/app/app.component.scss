@@ -1,0 +1,28 @@
+@font-face{
+    font-family: TitilliumWeb-Regular;
+    src: url(../assets/fonts/TitilliumWeb-Regular.ttf);
+}
+
+
+.grid{
+
+    display: grid;
+    grid-template-areas: "currentData currentData"
+                         "simulationPanel simulationChart";
+    grid-template-columns: 20em 1fr;
+    .simulation__current_data{
+        grid-area: currentData;
+        border-bottom: var(--border-color);
+    }
+    .simulation__panel{
+        grid-area: simulationPanel;
+        border-right:var(--border-color);
+
+    }
+    .simulation__chart{
+        grid-area: simulationChart;
+        padding: 10px;
+        margin-bottom: 2em;
+    }
+
+}

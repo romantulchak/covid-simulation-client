@@ -1,0 +1,27 @@
+<section class="simulation__chart_section">
+   
+        <ng-container *ngIf="simulationDetails?.length != 0; else simulationNotStarted">
+        
+ 
+
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Line Chart">
+           <ng-template matTabContent>
+            <app-line-chart [lineChartData]="lineChartData" [lineChartLabels]="lineChartLabels" [lineChartColors]="lineChartColors" [lineChartLegend]="true"></app-line-chart>
+           </ng-template>
+        </mat-tab>
+        <mat-tab label="Bar Chart">
+            <ng-template matTabContent>
+                <app-bar-chart [barChartData]="lineChartData" [barChartColors]="barChartColors" [barChartLabels]="lineChartLabels" [barChartLegend]="true"></app-bar-chart>
+            </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+
+    </ng-container>
+
+
+    <ng-template #simulationNotStarted>
+        <h2 class="simulattion__not_started">There will be a chart </h2>
+    </ng-template>
+
+</section>

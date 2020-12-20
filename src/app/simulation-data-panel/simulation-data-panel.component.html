@@ -1,0 +1,37 @@
+<section class="simulation__top_panel">
+    
+    <ng-container *ngIf="currentSimulation != null;else statrYourSimulation">
+        <div class="simulation__name">
+            <h2>{{currentSimulation.simulationName}}</h2>
+           </div>
+        <div class="simulation__info_grid">
+            <div class="simulation__population">
+                <h2>Initial Population</h2>
+                <h3>{{currentSimulation.population}}</h3>
+            </div>
+               <div class="simulation__infected_number">
+                <h2>Initial Initial number of infected</h2>
+                <h3>{{currentSimulation.initialNumberOfInfected}}</h3>
+               </div>
+               <div class="simulation__mortality_rate">
+                <h2>Mortality Rate</h2>
+                <h3>{{currentSimulation.mortalityRate}}</h3>
+               </div>
+               <div class="simulation__infect_day">
+                <h2>Person infected per day</h2>   
+                <h3>{{currentSimulation.personInfectPerDay}}</h3>
+               </div>
+               <div class="simulation__days">
+                <h2>Days</h2>   
+                <h3>{{currentSimulation.daysOfSimulation}}</h3>
+               </div>
+        </div>
+    </ng-container>
+    <ng-template #statrYourSimulation>
+
+        <div class="simulation__null">
+           <h2> Start your first simulation</h2>
+        </div>
+
+    </ng-template>
+</section>
