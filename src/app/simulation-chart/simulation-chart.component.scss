@@ -8,3 +8,18 @@
     height: 100%;
     font-family: TitilliumWeb-Regular;
 }
+.chart__result{
+    margin-top: 1em;
+    font-family: TitilliumWeb-Regular;
+    h2{
+        text-align: center;
+        background: rgba(63, 81, 181, 0.2);
+        border-radius: 4px;
+        padding: 1em;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.7);
+    }
+    h3{
+        text-align: center;
+    }
+}

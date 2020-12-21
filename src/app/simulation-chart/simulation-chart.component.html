@@ -1,6 +1,6 @@
 <section class="simulation__chart_section">
    
-        <ng-container *ngIf="simulationDetails?.length != 0; else simulationNotStarted">
+    <ng-container *ngIf="simulationDetails?.length != 0; else simulationNotStarted">
         
  
 
@@ -16,6 +16,12 @@
             </ng-template>
         </mat-tab>
       </mat-tab-group>
+
+      <div class="chart__result">
+          <h2>Result</h2>
+          <h3 *ngIf="simulationMaxDays > simulationDetails[simulationDetails.length - 1].day">Simulation was completed {{simulationMaxDays - simulationDetails[simulationDetails.length - 1].day}} days before the end</h3>
+        <app-pie-chart [simulationDetails]="simulationDetails[simulationDetails.length - 1]"></app-pie-chart>
+      </div>
 
     </ng-container>
 

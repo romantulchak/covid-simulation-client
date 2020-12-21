@@ -14,6 +14,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     SimulationDataPanelComponent,
     LineChartComponent,
     BarChartComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,

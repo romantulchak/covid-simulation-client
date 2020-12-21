@@ -13,7 +13,9 @@ export class SimulationChartComponent implements OnInit {
 
   constructor(private simulationService: SimulationService) { }
   public simulationDetails: SimulationDetails[] = [];
+  public pieChartData: number[];
   private days:string[];
+  public simulationMaxDays: number;
   private numberOfInfected: number[]
   private numberOfHealthyWithoutImmunity: number[];
   private numberOfDeath: number[];
@@ -60,12 +62,20 @@ export class SimulationChartComponent implements OnInit {
   ];
   ngOnInit(): void {
     this.getSimulationDetails();
+
+    this.simulationService.currentSimulation.subscribe(
+      res=>{
+        if(res != null){
+          this.simulationMaxDays = res.daysOfSimulation;
+        }
+      }
+    );
   }
 
   private getSimulationDetails(){
     this.simulationService.simulationDetails.subscribe(
       res=>{
-        if(res != null){
+        if(res != null){       
           this.simulationDetails = res;
           this.initChart();
         }
@@ -95,6 +105,5 @@ export class SimulationChartComponent implements OnInit {
         {data: this.numberOfDeath, label: "Number Of Death", backgroundColor:"transparent", borderColor:"#000"},
         {data: this.numberOfHealthyWithImmunity, label: "Number Of Healthy With Immunity", backgroundColor:"transparent", borderColor:"rgb(45 160 96 / 65%)"},
       ];
-    
   }
 }

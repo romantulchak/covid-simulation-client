@@ -2,7 +2,7 @@
     
     <ng-container *ngIf="currentSimulation != null;else statrYourSimulation">
         <div class="simulation__name">
-            <h2>{{currentSimulation.simulationName}}</h2>
+            <h2>Simulation name: {{currentSimulation.simulationName}}</h2>
            </div>
         <div class="simulation__info_grid">
             <div class="simulation__population">
@@ -10,7 +10,7 @@
                 <h3>{{currentSimulation.population}}</h3>
             </div>
                <div class="simulation__infected_number">
-                <h2>Initial Initial number of infected</h2>
+                <h2>Initial number of infected</h2>
                 <h3>{{currentSimulation.initialNumberOfInfected}}</h3>
                </div>
                <div class="simulation__mortality_rate">
@@ -30,7 +30,7 @@
     <ng-template #statrYourSimulation>
 
         <div class="simulation__null">
-           <h2> Start your first simulation</h2>
+           <h2> Start your simulation</h2>
         </div>
 
     </ng-template>
