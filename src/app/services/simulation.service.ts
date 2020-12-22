@@ -19,4 +19,9 @@ export class SimulationService{
         return this.http.post<SimulationDetails[]>(API_URL + 'simulation/startSimulation', simulation);
     }
 
+
+    public results():Observable<any>{
+        return this.http.get<any>(API_URL + 'simulation/results/0');
+    }
+
 }

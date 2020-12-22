@@ -19,6 +19,13 @@ export class PieChartComponent implements OnChanges {
   public pieChartLegend = true;
   public pieChartPlugins = [pluginDataLabels];
   public pieChartData:number[] = [];
+  public population: number;
+
+  public deathInPercentage: string;
+  public healthyWithImmunityInPercentage: string;
+  public infectedInPercentage: string;
+
+
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
@@ -46,6 +53,11 @@ export class PieChartComponent implements OnChanges {
   ngOnChanges(){
     this.pieChartData = [];
     this.pieChartData.push(this.simulationDetails.numberOfInfected, this.simulationDetails.numberOfDeath, this.simulationDetails.numberOfHealthyWithImmunity);
+    this.population = this.simulationDetails.numberOfDeath + this.simulationDetails.numberOfHealthyWithImmunity + this.simulationDetails.numberOfHealthyWithoutImmunity + this.simulationDetails.numberOfInfected;
+    this.deathInPercentage =((this.simulationDetails.numberOfDeath / this.population)*100).toFixed(2);
+    this.healthyWithImmunityInPercentage = ((this.simulationDetails.numberOfHealthyWithImmunity / this.population)*100).toFixed(2);
+    this.infectedInPercentage = ((this.simulationDetails.numberOfInfected / this.population)*100).toFixed(2);
   }
-
-}
+  
+  
+} 

@@ -1,7 +1,7 @@
 <section class="simulation__chart_section">
    
     <ng-container *ngIf="simulationDetails?.length != 0; else simulationNotStarted">
-        
+        <div class="results">
  
 
     <mat-tab-group animationDuration="0ms">
@@ -22,6 +22,7 @@
           <h3 *ngIf="simulationMaxDays > simulationDetails[simulationDetails.length - 1].day">Simulation was completed {{simulationMaxDays - simulationDetails[simulationDetails.length - 1].day}} days before the end</h3>
         <app-pie-chart [simulationDetails]="simulationDetails[simulationDetails.length - 1]"></app-pie-chart>
       </div>
+    </div>
 
     </ng-container>
 

@@ -1,0 +1,60 @@
+@font-face{
+    font-family: TitilliumWeb-Regular;
+    src: url(../../assets/fonts/TitilliumWeb-Regular.ttf);
+}
+@mixin virus-bg-position-right($right, $top) {
+    right: $right;
+    top: $top;   
+}
+@mixin virus-bg-position-left($left, $top) {
+    left: $left;
+    top: $top;   
+}
+.main__background{
+    position: relative;
+}
+.grid{
+
+    display: grid;
+    grid-template-areas: "currentData currentData"
+                         "simulationPanel simulationChart";
+    grid-template-columns: 20em 1fr;
+    .simulation__current_data{
+        grid-area: currentData;
+        border-bottom: var(--border-color);
+    }
+    .simulation__panel{
+        grid-area: simulationPanel;
+        border-right:var(--border-color);
+
+    }
+    .simulation__chart{
+        grid-area: simulationChart;
+        padding: 10px;
+        margin-bottom: 2em;
+    }
+
+}
+
+.virus__bg{
+    opacity: 0.7;
+    width: 70px;
+    position: absolute;;
+    z-index: -2;
+}
+.virus__one{
+    @include virus-bg-position-right(30px, 33px)
+}
+.virus__two{
+    @include virus-bg-position-left(-1px, 175px);
+}
+.virus__three{
+    @include virus-bg-position-left(293px, 38px);
+    width: 55px;
+}
+.virus__four{
+    @include virus-bg-position-left(700px, 500px);
+}
+.virus__five{
+    @include virus-bg-position-right(347px, 376px)
+}
