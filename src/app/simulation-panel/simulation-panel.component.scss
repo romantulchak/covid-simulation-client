@@ -2,7 +2,18 @@
     padding: 1em;
     font-family: TitilliumWeb-Regular;
     text-align: center;
-
+    .additional__settings{
+        grid-template-columns: 1fr 1fr;
+        .check__box_position{
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            input[type="checkbox"]{
+                margin-left: 10px;
+            }
+        }
+    }
     &>div{
         margin-bottom: 1em;
         display: grid;
@@ -14,7 +25,7 @@
         label{
             font-weight: 900;
         }
-        input{
+        input[type="text"], input[type="number"]{
             margin: 10px;
             border: none;
             border-top: var(--border-color);

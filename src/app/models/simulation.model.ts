@@ -10,5 +10,7 @@ export class Simulation{
     public daysToRecovery: number;
     public daysToDeath: number;
     public daysOfSimulation: number;
-    public SimulationDetails: SimulationDetails[];
+    public simulationDetails: SimulationDetails[];
+    public isMask: boolean;
+    public isDistance: boolean;
 }

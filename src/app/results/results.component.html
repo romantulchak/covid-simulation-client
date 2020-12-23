@@ -1,1 +1,24 @@
-<p>results works!</p>
+<section class="all__results">
+    <div class="container">
+        <h1 class="all__results">All results</h1>
+       <div class="grid">
+        <ng-container *ngFor="let simulation of simulations">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{simulation.simulationName}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                     Total population: {{simulation.population}} Days: {{simulation.daysOfSimulation}}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <ng-template matExpansionPanelContent>
+                    <app-pie-chart [simulationDetails]="simulation.simulationDetails[simulation.simulationDetails.length - 1]"></app-pie-chart>
+                  </ng-template>            
+                </mat-expansion-panel>
+              </mat-accordion>
+           </ng-container>
+       </div>
+    </div>
+</section>

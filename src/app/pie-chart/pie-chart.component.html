@@ -13,9 +13,31 @@
     <div class="result__simulation">
         <h2><img src="../../assets/images/population.svg" alt="">Total population {{population}}</h2>
         <div class="total__amount">
-          <h2><img src="../../assets/images/skull.svg" alt="">Death: {{deathInPercentage}}%</h2>
-          <h2><img src="../../assets/images/vaccine.svg" alt="">Healthy with immunity: {{healthyWithImmunityInPercentage}}%</h2>
-          <h2><img src="../../assets/images/coronavirus.svg" alt=""> Infected: {{infectedInPercentage}}%</h2>
+          <h2><img src="../../assets/images/skull.svg" alt="">Deaths: 
+            <ul>
+            <li>{{simulationDetails.numberOfDeath}} persons</li>
+            <li>{{deathInPercentage}}%</li>
+          </ul>
+        </h2>
+          <h2><img src="../../assets/images/vaccine.svg" alt="">Healthy with immunity:
+            <ul>
+              <li>{{simulationDetails.numberOfHealthyWithImmunity}} persons</li>
+              <li>{{healthyWithImmunityInPercentage}}%</li>
+            </ul>
+          </h2>
+          <h2><img src="../../assets/images/coronavirus.svg" alt=""> Infected:
+            <br>
+            <ul>
+              <li>{{simulationDetails.numberOfInfected}} persons</li>
+              <li>{{infectedInPercentage}}%</li>
+            </ul>
+          </h2>
+          <h2><img src="../../assets/images/no-vaccines.svg" alt=""> Healthy without immunity:
+            <ul>
+              <li>{{simulationDetails.numberOfHealthyWithoutImmunity}} persons</li>
+              <li>{{healthyWithoutImmunityInPercentage}}%</li>
+            </ul>
+          </h2>
         </div>
 
     </div>

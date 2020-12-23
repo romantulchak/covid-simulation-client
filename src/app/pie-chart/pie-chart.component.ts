@@ -14,7 +14,7 @@ export class PieChartComponent implements OnChanges {
 
   @Input() simulationDetails:SimulationDetails;
 
-  public pieChartLabels: Label[] = ['Number of Infected', 'Number of Death', 'Number of Healthy With Immunity'];
+  public pieChartLabels: Label[] = ['Number of Infected', 'Number of Death', 'Number of Healthy With Immunity',['Number of Healthy', 'Without Immunity']];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [pluginDataLabels];
@@ -24,7 +24,7 @@ export class PieChartComponent implements OnChanges {
   public deathInPercentage: string;
   public healthyWithImmunityInPercentage: string;
   public infectedInPercentage: string;
-
+  public healthyWithoutImmunityInPercentage: string;
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -46,17 +46,18 @@ export class PieChartComponent implements OnChanges {
   };
   public pieChartColors = [
     {
-      backgroundColor: ['rgb(251 27 27 / 55%)', 'rgb(0,0,0)', 'rgb(45 160 96 / 65%)'],
-      hoverBackgroundColor: ['rgb(251 27 27 / 55%)', 'rgb(0,0,0)', 'rgb(45 160 96 / 65%)']
+      backgroundColor: ['rgb(251 27 27 / 55%)', 'rgb(0,0,0)', 'rgb(45 160 96 / 65%)', 'rgb(143 146 144 / 55%)'],
+      hoverBackgroundColor: ['rgb(251 27 27 / 55%)', 'rgb(0,0,0)', 'rgb(45 160 96 / 65%)', 'rgb(143 146 144 / 55%)']
     },
   ];
-  ngOnChanges(){
+  ngOnChanges(){    
     this.pieChartData = [];
-    this.pieChartData.push(this.simulationDetails.numberOfInfected, this.simulationDetails.numberOfDeath, this.simulationDetails.numberOfHealthyWithImmunity);
+    this.pieChartData.push(this.simulationDetails.numberOfInfected, this.simulationDetails.numberOfDeath, this.simulationDetails.numberOfHealthyWithImmunity, this.simulationDetails.numberOfHealthyWithoutImmunity);
     this.population = this.simulationDetails.numberOfDeath + this.simulationDetails.numberOfHealthyWithImmunity + this.simulationDetails.numberOfHealthyWithoutImmunity + this.simulationDetails.numberOfInfected;
     this.deathInPercentage =((this.simulationDetails.numberOfDeath / this.population)*100).toFixed(2);
     this.healthyWithImmunityInPercentage = ((this.simulationDetails.numberOfHealthyWithImmunity / this.population)*100).toFixed(2);
     this.infectedInPercentage = ((this.simulationDetails.numberOfInfected / this.population)*100).toFixed(2);
+    this.healthyWithoutImmunityInPercentage = ((this.simulationDetails.numberOfHealthyWithoutImmunity / this.population)*100).toFixed(2);
   }
   
   

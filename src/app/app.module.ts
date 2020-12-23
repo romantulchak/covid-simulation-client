@@ -17,6 +17,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { MainComponent } from './main/main.component';
 import { ResultsComponent } from './results/results.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { ResultsComponent } from './results/results.component';
     HttpClientModule,
     ChartsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Simulation } from '../models/simulation.model';
 import { SimulationService } from '../services/simulation.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { SimulationService } from '../services/simulation.service';
 export class ResultsComponent implements OnInit {
 
   constructor(private simulationService: SimulationService) { }
-
+  public simulations: Simulation[];
   ngOnInit(): void {
     this.getResults();
   }
@@ -18,8 +19,7 @@ export class ResultsComponent implements OnInit {
     this.simulationService.results().subscribe(
       res=>{
         if(res != null){
-          console.log(res);
-          
+          this.simulations = res;
         }
       }
     );
